@@ -185,7 +185,7 @@
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <div class="nav-links" id="navLinks">
-    <a href="#home">Home</a>
+    <a href="#top">Home</a>
     <a href="#features">Funzionalità</a>
     <a href="#screenshots">Screenshot</a>
     <a href="#download">Scarica</a>
@@ -334,6 +334,17 @@ function toggleMenu() {
   const nav = document.getElementById('navLinks');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+// Chiudi menu cliccando fuori
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('navLinks');
+  const toggle = document.querySelector('.menu-toggle');
+
+  if (nav.style.display === 'flex' &&
+      !nav.contains(e.target) &&
+      !toggle.contains(e.target)) {
+    nav.style.display = 'none';
+  }
+});
 </script>
 
 </body>
